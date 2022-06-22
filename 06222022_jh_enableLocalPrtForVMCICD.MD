@@ -3,7 +3,7 @@ Author: lightsavers
 Created: 06222022
 ```
 
-# Enable Port Forwarding Between Host-Guest (CentOS 7 - VirtualBox)
+# Enable Port Forwarding Between Host-Guest
 
  - Stop VM
 
