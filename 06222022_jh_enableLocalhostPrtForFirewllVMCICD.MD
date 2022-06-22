@@ -38,3 +38,22 @@ sudo firewall-cmd --permanent --add-port=8080/TCP
 ```
 sudo firewall-cmd --permanent --add-port=22/TCP  
 ```
+
+8. List all the ports you have open
+
+```
+sudo firewall-cmd --list-ports  
+```
+
+9. List all services
+
+```
+sudo firewall-cmd --list-services  
+```
+
+10. Finally, reload firewall to commit the changes
+
+```
+sudo firewall-cmd --reload 
+```
+
