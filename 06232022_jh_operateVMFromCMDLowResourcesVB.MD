@@ -1,59 +1,46 @@
 ```
 Author: lightsavers
-Created: 06222022
+Created: 06232022
 ```
 
-# Firewall Settings (Centos7 Guest)
+# Operate VM from CMD headless for low resources computing
 
-Ports are closed by default. Therefore, one must open only the ports that apply. 
+Operating headless VMs from CMD saves computing resources in scarce environments.
 
 # Sample Scenario
 
-1. Power on the VM locally or in your public cloud provider
+1. Put VBoxmanage in user path, under environmental variables
 
-2. Logging with your username with sudo powers
+2. Open Command Prompt(CMD)
 
-3. Starting opening ports as applicable to your project
-
-4. For example, open port 80 TCP to allow HTTP users
+3. List all available VMs in current environment
 
 ```
-sudo firewall-cmd --permanent --add-port=80/TCP  
+vboxmanage list vms 
 ```
 
-5. For example, open port 443 TCP to allow HTTPS users
+4. Start a headless VM
 
 ```
-sudo firewall-cmd --permanent --add-port=443/TCP  
+vboxmanage startvm "CI-CD" --type headless 
 ```
 
-6. For example, open port 8080 TCP to allow applications like Jenkins
+5. Pause a VM
 
 ```
-sudo firewall-cmd --permanent --add-port=8080/TCP  
+vboxmanage controlvm "CI-CD" pause --type headless
 ```
 
-7. For example, open port 22 TCP to allow SSH connections
+6. Resume a VM
 
 ```
-sudo firewall-cmd --permanent --add-port=22/TCP  
+vboxmanage controlvm "CI-CD" resume --type headless
 ```
 
-8. List all the ports you have open
+6. Poweroff a VM
 
 ```
-sudo firewall-cmd --list-ports  
+vboxmanage controlvm "CI-CD" poweroff --type headless
 ```
 
-9. List all services
-
-```
-sudo firewall-cmd --list-services  
-```
-
-10. Finally, reload firewall to commit the changes
-
-```
-sudo firewall-cmd --reload 
-```
-
+7. Done
